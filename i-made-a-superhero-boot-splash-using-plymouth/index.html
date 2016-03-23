@@ -1,0 +1,210 @@
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>I made a superhero boot-splash using plymouth!</title>
+	<meta name="description" content="">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<link rel="shortcut icon" href="../favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="../assets/styles/build/style.css?v=d66093f3e5">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oxygen:400,700">
+	
+	
+	
+
+    <link rel="canonical" href="http://my-ghost-blog.com/i-made-a-superhero-boot-splash-using-plymouth/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Shrey Mudgal">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="I made a superhero boot-splash using plymouth!">
+    <meta property="og:description" content="I rather see something more vivid than the boring Elementary OS boot-splash logo everday, when I get on my laptop.  Meh.. Or Well then, this had to be done. So Elementary is based on the Ubuntu 14.04 system, so it uses plymouth to make Boot Splashes.  Great! but wait">
+    <meta property="og:url" content="http://my-ghost-blog.com/i-made-a-superhero-boot-splash-using-plymouth/">
+    <meta property="article:published_time" content="2015-12-29T22:32:00.000Z">
+    <meta property="article:modified_time" content="2016-03-22T22:37:38.714Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="I made a superhero boot-splash using plymouth!">
+    <meta name="twitter:description" content="I rather see something more vivid than the boring Elementary OS boot-splash logo everday, when I get on my laptop.  Meh.. Or Well then, this had to be done. So Elementary is based on the Ubuntu 14.04 system, so it uses plymouth to make Boot Splashes.  Great! but wait">
+    <meta name="twitter:url" content="http://my-ghost-blog.com/i-made-a-superhero-boot-splash-using-plymouth/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Shrey Mudgal",
+    "author": {
+        "@type": "Person",
+        "name": "Shrey Mudgal",
+        "image": "http://my-ghost-blog.com/content/images/2016/03/Drawing--1--1.png",
+        "url": "http://my-ghost-blog.com/author/shrey/",
+        "description": "Someday, there’s going to be an updated version of me.\n"
+    },
+    "headline": "I made a superhero boot-splash using plymouth!",
+    "url": "http://my-ghost-blog.com/i-made-a-superhero-boot-splash-using-plymouth/",
+    "datePublished": "2015-12-29T22:32:00.000Z",
+    "dateModified": "2016-03-22T22:37:38.714Z",
+    "description": "I rather see something more vivid than the boring Elementary OS boot-splash logo everday, when I get on my laptop.  Meh.. Or Well then, this had to be done. So Elementary is based on the Ubuntu 14.04 system, so it uses plymouth to make Boot Splashes.  Great! but wait"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Shrey Mudgal" href="http://my-ghost-blog.com/rss/">
+</head>
+<body class="post-template
+	&gt;
+	
+	&lt;div class=" site-main>
+
+<header class="site-header">
+	<a href="http://my-ghost-blog.com"><img class="blog-logo" src="../content/images/2016/03/Drawing--1-.png" alt="Blog Logo"></a>
+	<h1 class="blog-title"><a href="http://my-ghost-blog.com">Shrey Mudgal</a></h1>
+	<h2 class="blog-description">What do you want to be, when you give up?</h2>
+
+	<ul class="nav">
+    <li class="nav-home" role="presentation"><a href="http://my-ghost-blog.com/">Home</a></li>
+</ul>
+</header>
+
+<main class="site-content" role="main">
+
+	<article class="post">
+
+
+
+			<header class="post-header">
+				
+				<h1 class="post-title">I made a superhero boot-splash using plymouth!</h1>
+				<span class="post-meta">Posted on <time datetime="2015-12-30">30 December 2015</time></span>
+			</header>
+
+			<section class="post-content">
+				<p>I rather see something more vivid than the boring Elementary OS boot-splash logo everday, when I get on my laptop. </p>
+
+<p><img src="../content/images/2016/03/elementaryboot.png" alt="Elementaryboot"></p>
+
+<p><em>Meh..</em></p>
+
+<p>Or</p>
+
+<p><img src="../content/images/2016/03/comiccharcters480.gif" alt="suphero-boot"></p>
+
+<p><em>Well then, this had to be done.</em></p>
+
+<p>So Elementary is based on the Ubuntu 14.04 system, so it uses plymouth to make Boot Splashes. <br>
+Great! but wait plymouth doesn't support .gif, <em>ah shucks</em>.</p>
+
+<p>So splitting up the gif into multiple fames, was the only option. Okay done!</p>
+
+<p>Using a pre-existing script I was able to understand that plymouth (<em>Its is very very very poorly documented</em>) has a refresh function that can help me load frames by frames. </p>
+
+<p>Some C type coding and some help from a friend I was able to make the boot-splash.</p>
+
+<h5 id="installationinstructions">Installation Instructions</h5>
+
+<p>The theme can be easily installed by running the install.sh file. Alternatively it can be done manually too by using the following commands.</p>
+
+<h6 id="manualinstallation">Manual installation</h6>
+
+<p>make a directory in plymouth directory as stated below where the theme will be stored</p>
+
+<p><code>mkdir /lib/plymouth/themes/my-theme</code></p>
+
+<p>copy the directory holding the theme files to the new place</p>
+
+<p><code>sudo cp --recursive /path/to/my-theme /lib/plymouth/themes/my-theme</code></p>
+
+<p>set it as default boot splash theme</p>
+
+<p><code>sudo ln -sf /lib/plymouth/themes/my-theme/my-theme.plymouth /etc/alternatives/default.plymouth</code></p>
+
+<p>In order to get back to the system default theme: <code>sudo update-alternatives --config default.plymouth</code> and select the default theme you want, then <code>sudo update-initramfs -u</code></p>
+
+<h5 id="previewingthetheme">Previewing the theme</h5>
+
+<p>Simply run the preview.sh file. It will install plymouth-x11 if required. Then follow the instructions.</p>
+
+<p><strong><em>There will be some negligible lag</em></strong></p>
+
+<p>You can either decrease the frames or run the following <a href="http://www.shortlist.com/resource/binary/e461d9b8eee234af131d4339662991c9/comiccharcters480.gif">optimizations</a>:</p>
+
+<blockquote>
+  <p>To fix it for Nvidia/ATI Cards:
+  Open Terminal (Press Ctrl+Alt+T)and enter the following commands:</p>
+  
+  <p>The easiest way to fix ugly plymouth theme fter installing nvidia drivers is to open terminal and type:</p>
+  
+  <p><code>sudo gedit /etc/default/grub</code></p>
+  
+  <p>Look for the line :</p>
+  
+  <p><code>#GRUB_GFXMODE=640x480</code></p>
+  
+  <p>Just underneath write the line :</p>
+  
+  <p><code>#GRUB_GFXPAYLOAD_LINUX=auto</code></p>
+  
+  <p>If this does not fix your problem replace <code>#GRUB_GFXPAYLOAD_LINUX=auto</code> with:</p>
+  
+  <p><code>#GRUB_GFXPAYLOAD_LINUX=1024x768</code></p>
+  
+  <p>then update grub with this command line:</p>
+  
+  <p><code>sudo update-grub</code></p>
+  
+  <p>reboot and your fine.</p>
+</blockquote>
+
+<p><a href="https://github.com/samflynn/superhero-bootsplash"><strong>Super-hero Github Repository</strong></a> </p>
+
+<p><b> Thanks to <a href="https://github.com/skd1993">Shobhit</a> for the install.sh, preview.sh and some help with the script code. <br>
+Check out his <a href="https://github.com/skd1993/nsa-plymouth">NSA-Bootsplash</a>. <br>
+</b></p>
+			</section>
+
+			<footer class="post-footer">
+					<section class="author-card cf">
+							<figure class="author-image">
+								<a href="../author/shrey/"><img src="../content/images/2016/03/Drawing--1--1.png" alt="Shrey Mudgal's Image"></a>
+							</figure>
+						<div class="author-meta">
+							 <a class="author-name" href="../author/shrey/">Shrey Mudgal</a>
+							 
+							 <div class="author-location">Pursuing B.Tech in Software Engineering. </div>
+							 <p class="author-bio">Someday, there’s going to be an updated version of me.
+</p>
+						</div>
+					</section>
+
+			</footer>
+	</article>
+
+	<aside class="post-navigation cf">
+			<div class="nav-next">
+				<a href="../avahi-fix-log-files-too-big-to-handle/">Avahi fix; log files too big to handle!</a>
+			</div>
+			<div class="nav-previous">
+				<a href="../your-start-page/">Bored of your old browser tab page? Make your own then!</a>
+			</div>
+	</aside>
+
+</main>
+
+
+	<footer class="site-footer">
+		<a class="subscribe icon-feed" href="http://my-ghost-blog.com/rss/"><span class="tooltip">RSS</span></a>
+		<div class="inner">
+			 <section class="copyright">All content copyright <a href="http://my-ghost-blog.com/">Shrey Mudgal</a> © 2016 • All rights reserved.</section>
+			 <section class="poweredby">Proudly published with <a class="icon-ghost" href="https://ghost.org">Ghost</a></section>
+		</div>
+	</footer>
+
+ 
+  
+
+	
+
+</body>

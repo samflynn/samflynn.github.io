@@ -1,0 +1,235 @@
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>A very specific file converter</title>
+	<meta name="description" content="">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<link rel="shortcut icon" href="../favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="../assets/styles/build/style.css?v=d66093f3e5">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oxygen:400,700">
+	
+	
+	
+
+    <link rel="canonical" href="http://my-ghost-blog.com/a-very-specific-file-converter/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Shrey Mudgal">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A very specific file converter">
+    <meta property="og:description" content="If you are one of those rare people on Earth, who are tasked with configuring new network elements into a telecom network, but don't have access to the bloated up, expensive software, you are in the right place. What are we doing here? A telecom carrier uses something called a">
+    <meta property="og:url" content="http://my-ghost-blog.com/a-very-specific-file-converter/">
+    <meta property="article:published_time" content="2015-09-07T22:48:00.000Z">
+    <meta property="article:modified_time" content="2016-03-21T10:07:21.523Z">
+    <meta property="article:tag" content="MIB">
+    <meta property="article:tag" content="LKP">
+    <meta property="article:tag" content="Converter">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="A very specific file converter">
+    <meta name="twitter:description" content="If you are one of those rare people on Earth, who are tasked with configuring new network elements into a telecom network, but don't have access to the bloated up, expensive software, you are in the right place. What are we doing here? A telecom carrier uses something called a">
+    <meta name="twitter:url" content="http://my-ghost-blog.com/a-very-specific-file-converter/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Shrey Mudgal",
+    "author": {
+        "@type": "Person",
+        "name": "Shrey Mudgal",
+        "image": "http://my-ghost-blog.com/content/images/2016/03/Drawing--1--1.png",
+        "url": "http://my-ghost-blog.com/author/shrey/",
+        "description": "Someday, there’s going to be an updated version of me.\n"
+    },
+    "headline": "A very specific file converter",
+    "url": "http://my-ghost-blog.com/a-very-specific-file-converter/",
+    "datePublished": "2015-09-07T22:48:00.000Z",
+    "dateModified": "2016-03-21T10:07:21.523Z",
+    "keywords": "MIB, LKP, Converter",
+    "description": "If you are one of those rare people on Earth, who are tasked with configuring new network elements into a telecom network, but don&#x27;t have access to the bloated up, expensive software, you are in the right place. What are we doing here? A telecom carrier uses something called a"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Shrey Mudgal" href="http://my-ghost-blog.com/rss/">
+</head>
+<body class="post-template tag-mib tag-lkp tag-converter
+	&gt;
+	
+	&lt;div class=" site-main>
+
+<header class="site-header">
+	<a href="http://my-ghost-blog.com"><img class="blog-logo" src="../content/images/2016/03/Drawing--1-.png" alt="Blog Logo"></a>
+	<h1 class="blog-title"><a href="http://my-ghost-blog.com">Shrey Mudgal</a></h1>
+	<h2 class="blog-description">What do you want to be, when you give up?</h2>
+
+	<ul class="nav">
+    <li class="nav-home" role="presentation"><a href="http://my-ghost-blog.com/">Home</a></li>
+</ul>
+</header>
+
+<main class="site-content" role="main">
+
+	<article class="post tag-mib tag-lkp tag-converter">
+
+
+
+			<header class="post-header">
+				
+				<h1 class="post-title">A very specific file converter</h1>
+				<span class="post-meta">Posted on <time datetime="2015-09-08">08 September 2015</time></span>
+			</header>
+
+			<section class="post-content">
+				<p>If you are one of those rare people on Earth, who are tasked with configuring new network elements into a telecom network, but don't have access to the bloated up, expensive software, you are in the right place.</p>
+
+<h3 id="whatarewedoinghere">What are we doing here?</h3>
+
+<p>A telecom carrier uses something called a Fault Management System (FMS). This system monitors the network equipment of any kind of errors/notifications.</p>
+
+<p>The FMS maintains an internal database, where a given error code corresponds to a description of an issue.</p>
+
+<p>For example <br>
+ sCSISmart4 would display an error on the FMS as</p>
+
+<p><code>The HostAdapter# %d with HostAdapter Id %s and Manager Id %s is discovered.</code></p>
+
+<p>When a telecom carrier installs new network equipment in their network they are sent some configuration files from the vendors itself, these configuration files are called MIB (Management Information Base, you didn't expect it to be Men In Back now, or did you?).</p>
+
+<p>These MIB files contain the alarm names(also called TRAP-TYPE) along with some additional stuff and a description of the error/notification.</p>
+
+<p>This MIB files are converted into a particular file format that is used to configure the FMS.</p>
+
+<p>Now the FMS doesn't read MIB files (the why is explained in the next paragraph), it needs to be feed a Lookup File (in short- LKP file), so it has to be converted.</p>
+
+<p>Once the LKP file is loaded, the FMS is now active and can be used to monitor the system live and give constant notifications and error updates to a Network Operations Center.</p>
+
+<h3 id="sowhatsthebigdealyoujusthavetoconvertonefiletoanothernooothereissomuchmoretoit">So what's the big deal? You just have to convert one file to another. Nooo, there is so much more to it!</h3>
+
+<p>The multiple complexity explained: <br>
+<img src="../content/images/2016/03/complexity-2.PNG" alt="Complexity"></p>
+
+<p>The MIB file will have multiple TRAP-TYPE and those may or maynot have multiple variables in them, and then again those variables may or maynot be required to have a mapping (another file that needs to be created in order to pass variables)</p>
+
+<p>Now, guess what, there are multiple vendors and the MIB file has no fixed format.</p>
+
+<p>For example; <br>
+Hewlett Packard defines a error/notification in the MIB file by using <code>TRAP-TYPE</code> whereas Cisco would call this <code>NOTIFICATION-TYPE</code> and this is just the tip of the iceberg.</p>
+
+<p>And the thing about shell scripting is any blank spaces or weird characters like /r (Arises when the MIB file is opened in windows) can break the code.</p>
+
+<p>So I had to create a almost perfect script that would be mindful of the extra spaces and consider all kinds of formats for the MIB file.</p>
+
+<p>This script requires an external .CSV file called <code>mibwithtraps</code> this file list down the the multiple traps contained within a MIB file.</p>
+
+<h3 id="someexampleblocks">Some example blocks:</h3>
+
+<p>mibwithtraps.csv file :</p>
+
+<pre><code>#name of MIB, name of trap, its OID, its severity 
+adaptec.mib,sCSISmart19,.1.3.6.1.4.1.795.2.5.0.123,CRITICAL,
+adaptec.mib,sCSISmart20,.1.3.6.1.4.1.795.2.5.0.124,INFORMATIONAL,
+adaptec.mib,sCSISmart21,.1.3.6.1.4.1.795.2.5.0.125,INFORMATIONAL,
+asmib.mib,arcServetrapLow,.1.3.6.1.4.1.46.877.0.3,INFORMATIONAL,
+asmib.mib,arcServetrap4,.1.3.6.1.4.1.46.877.0.4,CRITICAL,
+asmib.mib,arcServetrap5,.1.3.6.1.4.1.46.877.0.5,CRITICAL,
+</code></pre>
+
+<p>A TRAP-TYPE block :</p>
+
+<pre><code>sCSISmart1    TRAP-TYPE
+ENTERPRISE  cyclone
+DESCRIPTION
+"SNMP Agent is up."
+--#TYPE "SNMP Agent is up."
+--#SUMMARY "SNMP Agent is up"
+--#ARGUMENTS {}
+--#SEVERITY INFORMATIONAL
+--#TIMEINDEX 100
+--#STATE OPERATIONAL
+--#HELP "scsismrt.hlp"
+--#HELPTAG 101
+</code></pre>
+
+<p>The LKP file for the above block:</p>
+
+<pre><code>FORM: LookupFile
+Version: 1
+LookupFileCount:21
+
+Case: "101"
+{
+set(iSeverity=5)
+lookup(sTrapResource, "MPS_Node2Res", iMatchMPS)
+printf(sResource,"%s:sCSISmart1",sTrapResource)
+printf(sMessage,"IP:%s,NodeName:%s, SNMP Agent is up.",sIPadd, sNodeName)
+}
+</code></pre>
+
+<h3 id="sohowdoesthecodework">So how does the code work?</h3>
+
+<p>Well, explaining that is out of the scope of this blog, please refer to the Detailed Technical Analysis attached at the bottom of the page. It explains everything in excruciating detail.</p>
+
+<p>However I am not going to leave you hanging there, this image shows a brief idea of the working of script:</p>
+
+<p><img src="../content/images/2016/03/working.png" alt="working">
+An example of the code running to show conversion of a mlxraid.mib to a lkp file called .1.3.6.1.4.1.1608.1.1.1.9.1.lkp</p>
+
+<p><img src="../content/images/2016/03/execution.png" alt="execution"></p>
+
+<p>The sent code is printed 95 times as the code checks 95 traps, each of whose variables is EventCode, which creates sentcode 95 times.</p>
+
+<p>Some more additional details, more detailed explanation of code (with lots of code snippets!), error handling and limitations have been discussed here <a href="https://drive.google.com/file/d/0B9P591Bk1VTgaDhYN1BaS2Y3ME0/view?usp=sharing">Detailed Technical Analysis</a>.</p>
+
+<h6 id="okayenoughshowmethecode">Okay enough, show me the code!</h6>
+
+<p>Here you go : <a href="https://github.com/samflynn/MIBtoLKPfileconverter/blob/master/script_alarmtool">code</a></p>
+			</section>
+
+			<footer class="post-footer">
+					<section class="author-card cf">
+							<figure class="author-image">
+								<a href="../author/shrey/"><img src="../content/images/2016/03/Drawing--1--1.png" alt="Shrey Mudgal's Image"></a>
+							</figure>
+						<div class="author-meta">
+							 <a class="author-name" href="../author/shrey/">Shrey Mudgal</a>
+							 
+							 <div class="author-location">Pursuing B.Tech in Software Engineering. </div>
+							 <p class="author-bio">Someday, there’s going to be an updated version of me.
+</p>
+						</div>
+					</section>
+
+					<div class="post-tags">Tagged with: <a href="../tag/mib/">MIB</a>, <a href="../tag/lkp/">LKP</a>, <a href="../tag/converter/">Converter</a></div>
+			</footer>
+	</article>
+
+	<aside class="post-navigation cf">
+			<div class="nav-next">
+				<a href="../your-start-page/">Bored of your old browser tab page? Make your own then!</a>
+			</div>
+	</aside>
+
+</main>
+
+
+	<footer class="site-footer">
+		<a class="subscribe icon-feed" href="http://my-ghost-blog.com/rss/"><span class="tooltip">RSS</span></a>
+		<div class="inner">
+			 <section class="copyright">All content copyright <a href="http://my-ghost-blog.com/">Shrey Mudgal</a> © 2016 • All rights reserved.</section>
+			 <section class="poweredby">Proudly published with <a class="icon-ghost" href="https://ghost.org">Ghost</a></section>
+		</div>
+	</footer>
+
+ 
+  
+
+	
+
+</body>

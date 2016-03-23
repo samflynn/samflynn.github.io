@@ -1,0 +1,176 @@
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Avahi fix; log files too big to handle!</title>
+	<meta name="description" content="">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<link rel="shortcut icon" href="../favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="../assets/styles/build/style.css?v=d66093f3e5">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oxygen:400,700">
+	
+	
+	
+
+    <link rel="canonical" href="http://my-ghost-blog.com/avahi-fix-log-files-too-big-to-handle/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Shrey Mudgal">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Avahi fix; log files too big to handle!">
+    <meta property="og:description" content="Some time back, while watching a movie on my laptop I encountered a serious issue in my Linux Mint installation. The system space was running out, and that too without any visible problem! All of a sudden while watching the movie, PC started to lag. When I checked the home">
+    <meta property="og:url" content="http://my-ghost-blog.com/avahi-fix-log-files-too-big-to-handle/">
+    <meta property="article:published_time" content="2016-02-21T08:56:00.000Z">
+    <meta property="article:modified_time" content="2016-03-21T08:58:36.139Z">
+    <meta property="article:tag" content="avahi">
+    <meta property="article:tag" content="logfiles">
+    <meta property="article:tag" content="logrotate">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Avahi fix; log files too big to handle!">
+    <meta name="twitter:description" content="Some time back, while watching a movie on my laptop I encountered a serious issue in my Linux Mint installation. The system space was running out, and that too without any visible problem! All of a sudden while watching the movie, PC started to lag. When I checked the home">
+    <meta name="twitter:url" content="http://my-ghost-blog.com/avahi-fix-log-files-too-big-to-handle/">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Shrey Mudgal",
+    "author": {
+        "@type": "Person",
+        "name": "Shrey Mudgal",
+        "image": "http://my-ghost-blog.com/content/images/2016/03/Drawing--1--1.png",
+        "url": "http://my-ghost-blog.com/author/shrey/",
+        "description": "Someday, there’s going to be an updated version of me.\n"
+    },
+    "headline": "Avahi fix; log files too big to handle!",
+    "url": "http://my-ghost-blog.com/avahi-fix-log-files-too-big-to-handle/",
+    "datePublished": "2016-02-21T08:56:00.000Z",
+    "dateModified": "2016-03-21T08:58:36.139Z",
+    "keywords": "avahi, logfiles, logrotate",
+    "description": "Some time back, while watching a movie on my laptop I encountered a serious issue in my Linux Mint installation. The system space was running out, and that too without any visible problem! All of a sudden while watching the movie, PC started to lag. When I checked the home"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Shrey Mudgal" href="http://my-ghost-blog.com/rss/">
+</head>
+<body class="post-template tag-avahi tag-logfiles tag-logrotate
+	&gt;
+	
+	&lt;div class=" site-main>
+
+<header class="site-header">
+	<a href="http://my-ghost-blog.com"><img class="blog-logo" src="../content/images/2016/03/Drawing--1-.png" alt="Blog Logo"></a>
+	<h1 class="blog-title"><a href="http://my-ghost-blog.com">Shrey Mudgal</a></h1>
+	<h2 class="blog-description">What do you want to be, when you give up?</h2>
+
+	<ul class="nav">
+    <li class="nav-home" role="presentation"><a href="http://my-ghost-blog.com/">Home</a></li>
+</ul>
+</header>
+
+<main class="site-content" role="main">
+
+	<article class="post tag-avahi tag-logfiles tag-logrotate">
+
+
+
+			<header class="post-header">
+				
+				<h1 class="post-title">Avahi fix; log files too big to handle!</h1>
+				<span class="post-meta">Posted on <time datetime="2016-02-21">21 February 2016</time></span>
+			</header>
+
+			<section class="post-content">
+				<p>Some time back, while watching a movie on my laptop I encountered a serious issue in my Linux Mint installation. The system space was running out, and that too without any visible problem!</p>
+
+<p>All of a sudden while watching the movie, PC started to lag. When I checked the <code>home</code> folder I was surprised to find that the free space which should have been around 50 GB had been reduced to zero!</p>
+
+<p>I hunted for the problem and thus ran a <b>disk usage analysis</b>. It can be launched from the terminal too by <code>sudo baobab</code>. much to my surprise, the log files including "syslog" in the <code>/var/log/</code> folder had grown upto 41 GB! Something was very wrong, something was being logged too often. First I thought it could be some problem with the rotation of log files.</p>
+
+<blockquote>
+  <p>It is one thing to create logs; it is quite another to cope with them. A log file grows without bound unless action is taken and this can cause problems.</p>
+</blockquote>
+
+<p>Problems with growing log files</p>
+
+<ul>
+<li>Larger files are harder to manipulate.</li>
+<li>File systems run out of space.</li>
+<li>The information you log may constitute personal data.</li>
+</ul>
+
+<blockquote>
+  <p>A solution to this generic problem of log file growth is log rotation. This involves the regular (nightly or weekly, typically) moving of an existing log file to some other file name and starting fresh with an empty log file. After a period the old log files get thrown away.</p>
+  
+  <p>Because this is a general issue, many Linux distributions (SLES included) include a general solution that can be applied to any set of log files, not just the web server's.</p>
+  
+  <p>...Once each night the logrotate program reads in its configuration files telling it which logs to rotate and how to do it. One of these files tells it to rotate Apache's log files.</p>
+  
+  <p>The main configuration file sets up the defaults and then reads in a directory of instructions for specific sets of log files from the <code>/etc/logrotate.d</code> directory.</p>
+</blockquote>
+
+<p>The old files are automatically given a numbered extension like <i>syslog.1</i> or they are compressed. It is generally safe to delete these files. However, doing this didn't free up much space for me, because the problem was in the fresh log files. <br>
+So, I browsed through the recent log files using <code>less &lt;log-file-name&gt;</code> whose size was the largest and found something like this appearing endless number of times: </p>
+
+<pre><code>Nov 16 10:27:23 ala avahi-daemon[2391]: Invalid response packet from host fe80::21f:5bff:fef3:ff0b.
+Nov 16 10:27:23 ala avahi-daemon[2391]: Invalid response packet from host 146.48.82.63.
+</code></pre>
+
+<p>The problematic element had been found: <code>avahi</code>. Now, how to fix the issue? What was actually happening. I came across <a href="https://www.slightfuture.com/technote/avahi-ipv6">this wonderful explanation</a> by googling a bit (didn't really understand it all).</p>
+
+<blockquote>
+  <p>...Windows responds to all broadcasts coming from all devices even when it doesn’t have any answers to give. This triggered a logging function in Avahi clients over invalid 0-answer packages, and thus their logs were flooded with messages...</p>
+</blockquote>
+
+<p>My system had <code>avahi</code> version 0.6.31 installed. I found that version 0.6.32-rc had a fix for this logging issue (although still under development). I luckily found a .deb for the <a href="https://mirror.umd.edu/ubuntu/pool/main/a/avahi/">latest version</a> (<code>libavahi-core7_0.6.32~rc+dfsg-1ubuntu2_amd64.deb</code>) and installed it. For sometime after that, I monitored the log files and found the problem was fixed!</p>
+
+<p><b>P.S.:</b> Some more custom solutions and patches were available for older versions of <i>avahi</i> but most of them didn't work for me and some others I couldn't really understand how to implement.</p>
+			</section>
+
+			<footer class="post-footer">
+					<section class="author-card cf">
+							<figure class="author-image">
+								<a href="../author/shrey/"><img src="../content/images/2016/03/Drawing--1--1.png" alt="Shrey Mudgal's Image"></a>
+							</figure>
+						<div class="author-meta">
+							 <a class="author-name" href="../author/shrey/">Shrey Mudgal</a>
+							 
+							 <div class="author-location">Pursuing B.Tech in Software Engineering. </div>
+							 <p class="author-bio">Someday, there’s going to be an updated version of me.
+</p>
+						</div>
+					</section>
+
+					<div class="post-tags">Tagged with: <a href="../tag/avahi/">avahi</a>, <a href="../tag/logfiles/">logfiles</a>, <a href="../tag/logrotate/">logrotate</a></div>
+			</footer>
+	</article>
+
+	<aside class="post-navigation cf">
+			<div class="nav-previous">
+				<a href="../i-made-a-superhero-boot-splash-using-plymouth/">I made a superhero boot-splash using plymouth!</a>
+			</div>
+	</aside>
+
+</main>
+
+
+	<footer class="site-footer">
+		<a class="subscribe icon-feed" href="http://my-ghost-blog.com/rss/"><span class="tooltip">RSS</span></a>
+		<div class="inner">
+			 <section class="copyright">All content copyright <a href="http://my-ghost-blog.com/">Shrey Mudgal</a> © 2016 • All rights reserved.</section>
+			 <section class="poweredby">Proudly published with <a class="icon-ghost" href="https://ghost.org">Ghost</a></section>
+		</div>
+	</footer>
+
+ 
+  
+
+	
+
+</body>
