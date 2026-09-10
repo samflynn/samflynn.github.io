@@ -4,6 +4,4 @@ title: "Shrey Mudgal"
 
 ![](images/profile.jpg){width=250px}
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Hello! I'm currently a Master of Data Science student at the University of British Columbia.
