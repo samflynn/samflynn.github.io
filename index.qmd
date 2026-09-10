@@ -1,6 +1,8 @@
 ---
-title: "smudgal"
+title: "Shrey Mudgal"
 ---
+
+![](images/profile.jpg){width=250px}
 
 This is a Quarto website.
 
