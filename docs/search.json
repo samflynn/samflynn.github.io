@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "About this site"
+    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 11, 2026\n\n\nShrey Mudgal\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -12,5 +12,40 @@
     "title": "Shrey Mudgal",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My first weeks in MDS",
+    "section": "",
+    "text": "Orientation day on campus.\n\n\n\nOrientation was excellent. We received a comprehensive overview of what the next 10 months would look like, met several alumni who shared their tips and advice, and had the chance to ask them questions directly. There was also an informative session on maintaining mental well-being, and we were introduced to all faculty members along with guidance on how and where to reach out for support. What surprised me most was how approachable the faculty were; you could walk up and speak with anyone, and one of the senior director holds office hours where you can discuss the program in general.\nThe first week was hectic, especially DSCI 551, which threw a lot at us right away. I stayed diligent, putting in significant time each day to complete the assignments, and that effort paid off; I finished all the required work by Saturday afternoon and was able to relax for the rest of the weekend.\nHeading into week 3, I’m feeling a bit nervous. A lot of material has been covered, there’s a great deal to retain, and balancing the upcoming assignments, labs, and quizzes will be challenging."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I earned my bachelor’s degree in computer science from Delhi Technological University. I then moved to the United States, where I completed a master’s degree in information systems. My professional journey began as a data analyst at a manufacturing company, where I applied data science techniques including time series forecasting, predictive modeling, and machine learning. I later joined Discover (Capital One), where I held roles as a business intelligence analyst and subsequently as a software/data engineer."
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About",
+    "section": "",
+    "text": "I earned my bachelor’s degree in computer science from Delhi Technological University. I then moved to the United States, where I completed a master’s degree in information systems. My professional journey began as a data analyst at a manufacturing company, where I applied data science techniques including time series forecasting, predictive modeling, and machine learning. I later joined Discover (Capital One), where I held roles as a business intelligence analyst and subsequently as a software/data engineer."
+  },
+  {
+    "objectID": "about.html#why-data-science",
+    "href": "about.html#why-data-science",
+    "title": "About",
+    "section": "Why data science",
+    "text": "Why data science\nThroughout my career, I found myself increasingly drawn back to the data science work I had enjoyed earlier on. Recognizing this, I decided to pivot by enrolling in UBC’s Master of Data Science program. My goal is to transition into a full-time data scientist role."
+  },
+  {
+    "objectID": "about.html#outside-of-data-science",
+    "href": "about.html#outside-of-data-science",
+    "title": "About",
+    "section": "Outside of data science",
+    "text": "Outside of data science\nOutside of work, I enjoy playing the piano, reading science fiction, and playing video games."
   }
 ]

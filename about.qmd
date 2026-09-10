@@ -2,4 +2,14 @@
 title: "About"
 ---
 
-About this site
+## Background
+
+I earned my bachelor's degree in computer science from Delhi Technological University. I then moved to the United States, where I completed a master's degree in information systems. My professional journey began as a data analyst at a manufacturing company, where I applied data science techniques including time series forecasting, predictive modeling, and machine learning. I later joined Discover (Capital One), where I held roles as a business intelligence analyst and subsequently as a software/data engineer.
+
+## Why data science
+
+Throughout my career, I found myself increasingly drawn back to the data science work I had enjoyed earlier on. Recognizing this, I decided to pivot by enrolling in UBC's Master of Data Science program. My goal is to transition into a full-time data scientist role.
+
+## Outside of data science
+
+Outside of work, I enjoy playing the piano, reading science fiction, and playing video games.
