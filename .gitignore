@@ -2,3 +2,7 @@
 **/*.quarto_ipynb
 .DS_Store
 _site
+.venv/
+.Rhistory
+renv/library
+.RData
