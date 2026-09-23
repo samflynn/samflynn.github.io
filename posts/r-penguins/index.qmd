@@ -1,0 +1,70 @@
+---
+title: "Penguin body size, measured in R"
+author: "Shrey Mudgal"
+date: 2026-09-22
+---
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/).
+
+*Citation: Horst, Hill and Gorman (2020), doi:10.5281/zenodo.3960218. The data is released under CC0.* 
+
+Three species turn up in this data: Adelie, Chinstrap and Gentoo. I want to compare them on two measurements, body mass in grams and flipper length in millimetres, and then check how tightly the variables move with each other. The `palmerpenguins` package contains the data file inside the package.
+
+I load the packages first. This chunk is ran quietly: `palmerpenguins` masks two objects from the `datasets` package when it loads and prints a note about it, and that note is noise in the middle of a page.
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+library(palmerpenguins)
+library(dplyr)
+library(ggplot2)
+```
+
+The table holds 344 penguins. Two of them are missing both measurements, so I remove those rows and keep 342. I drop the bill columns since I am not using them.
+
+```{r}
+#| label: load-clean
+penguins_clean <- penguins |>
+  filter(!is.na(body_mass_g), !is.na(flipper_length_mm)) |>
+  select(species, island, sex, flipper_length_mm, body_mass_g)
+
+nrow(penguins_clean)
+head(penguins_clean)
+```
+
+Body mass splits the species more sharply than I expected. Adelie and Chinstrap average almost the same, around 3.7 kg, while Gentoo come in near 5.1 kg, roughly 1.4 kg heavier. Flipper length tells a similar story, with Gentoo at about 217 mm against 190 mm for Adelie.
+
+```{r}
+#| label: tbl-penguin-summary
+#| tbl-cap: "Body mass and flipper length by species, 342 complete records."
+penguins_clean |>
+  group_by(species) |>
+  summarise(
+    n = n(),
+    mean_mass_g = mean(body_mass_g),
+    sd_mass_g = sd(body_mass_g),
+    mean_flipper_mm = mean(flipper_length_mm)
+  ) |>
+  knitr::kable(digits = 1)
+```
+
+The boxplot shows how much overlap there is. Adelie and Chinstrap sit on top of each other with a lot of spread, and Gentoo are shifted well clear of both.
+
+```{r}
+#| label: fig-penguin-mass
+#| fig-cap: "Body mass of penguins by species."
+#| fig-alt: "Boxplot of body mass in grams for Adelie, Chinstrap and Gentoo penguins. Gentoo sit noticeably higher than the other two species."
+ggplot(penguins_clean, aes(x = species, y = body_mass_g, fill = species)) +
+  geom_boxplot() +
+  labs(x = "Species", y = "Body mass (g)") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+Flipper length and body mass are strongly related, with a correlation near 0.87. Longer flippers go with heavier birds. However, this requires further analysis as the metric relation I used here is quite simple. 
+
+```{r}
+#| label: corr
+cor(penguins_clean$flipper_length_mm, penguins_clean$body_mass_g)
+```
