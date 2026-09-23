@@ -33,4 +33,4 @@ open docs/index.html
 
 Both posts use Palmer Penguins: https://allisonhorst.github.io/palmerpenguins/, cited as Horst, Hill and Gorman (2020), doi:10.5281/zenodo.3960218. 
 
-Data is CC0, package is MIT, collected by the Palmer Station Antarctica LTER.
+Data is CC0, package is MIT, collected by the Palmer Station Antarctica LTER. The data file comes from inside the `palmerpenguins` package, so rendering does not need internet. `uv sync` and `renv::restore()` do, since they download packages from PyPI and CRAN.
