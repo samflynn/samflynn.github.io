@@ -16,7 +16,6 @@ Three species turn up in this data: Adelie, Chinstrap and Gentoo. I want to comp
 #| message: false
 #| warning: false
 import pandas as pd
-import altair as alt
 import matplotlib.pyplot as plt
 from palmerpenguins import load_penguins
 ```
